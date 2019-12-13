@@ -1,10 +1,12 @@
 import React from "react";
+import SmurfVillage from "./components/smurfVillage";
+
 import "./App.css";
 
 function App() {
   return (
     <div className="App">
-      <SmurfForm />
+      <SmurfVillage />
     </div>
   );
 }

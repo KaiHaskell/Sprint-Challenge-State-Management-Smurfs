@@ -21,25 +21,42 @@ const reducer = (state = initialState, action) => {
         isFetching: true,
         error: ""
       };
-      case FETCH_SUCCESS:
-          return {
-              ...state,
-            smurfs: action.payload,
-            isFetching: false,
-            error: ''
-          }
-        case FETCH_FAILURE:
-            return {
-                ...state,
-                isFetching: false, 
-                error: action.payload
-            }
-        case NEW_SMURF_FETCH: 
-            return {
-                ...state,
-                smurfs: [...state.smurfs, action.payload],
-                isFetching: false
-            }    
-        case NEW_SMURF_SUCCESS
-  } 
+    case FETCH_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload,
+        isFetching: false,
+        error: ""
+      };
+    case FETCH_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload
+      };
+    case NEW_SMURF_FETCH:
+      return {
+        ...state,
+        smurfs: [...state.smurfs, action.payload],
+        isFetching: true,
+        error: ""
+      };
+    case NEW_SMURF_SUCCESS:
+      return {
+        ...state,
+        smurfs: action.payload,
+        isFetching: false,
+        error: ""
+      };
+    case NEW_SMURF_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        error: action.payload
+      };
+    default:
+      return state;
+  }
 };
+
+export default reducer;
